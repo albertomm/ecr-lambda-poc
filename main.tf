@@ -51,3 +51,18 @@ module "account_b" {
   }
 }
 
+module "pipeline" {
+  source = "./pipeline"
+
+  updater_role_arn = module.account_b.updater_role_arn
+
+  providers = {
+    aws = aws.account_a
+  }
+
+  depends_on = [
+    module.account_a,
+    module.account_b,
+   ]
+}
+
