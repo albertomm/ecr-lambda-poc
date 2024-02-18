@@ -1,11 +1,11 @@
 variable "account_a_profile" {
-  type=string
+  type = string
 }
 
 variable "account_b_profile" {
-  type=string
+  type = string
 }
 
 variable "region" {
-  type=string
+  type = string
 }

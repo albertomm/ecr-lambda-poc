@@ -1,13 +1,13 @@
 locals {
   pull_actions = [
-      "ecr:BatchCheckLayerAvailability",
-      "ecr:GetDownloadUrlForLayer",
-      "ecr:ListImages",
-      "ecr:DescribeImages",
-      "ecr:BatchGetImage",
-      "ecr:DescribeRepositories",
-      "ecr:GetRepositoryPolicy",
-    ]
+    "ecr:BatchCheckLayerAvailability",
+    "ecr:GetDownloadUrlForLayer",
+    "ecr:ListImages",
+    "ecr:DescribeImages",
+    "ecr:BatchGetImage",
+    "ecr:DescribeRepositories",
+    "ecr:GetRepositoryPolicy",
+  ]
 }
 
 resource "aws_ecr_repository" "this" {

@@ -32,7 +32,7 @@ data "aws_caller_identity" "account_b" {
 module "account_a" {
   source = "./account_a"
 
-  account_b_id = data.aws_caller_identity.account_b.account_id
+  account_b_id     = data.aws_caller_identity.account_b.account_id
   updater_role_arn = module.account_b.updater_role_arn
 
   providers = {
@@ -63,7 +63,7 @@ module "pipeline" {
   depends_on = [
     module.account_a,
     module.account_b,
-   ]
+  ]
 }
 
 output "account_a" {

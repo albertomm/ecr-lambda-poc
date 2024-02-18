@@ -26,8 +26,8 @@ data "aws_iam_policy_document" "assume" {
 
 data "aws_iam_policy_document" "function_update" {
   statement {
-    sid="AllowAssumingUpdaterRole"
-    actions = ["sts:AssumeRole"]
+    sid       = "AllowAssumingUpdaterRole"
+    actions   = ["sts:AssumeRole"]
     resources = [var.updater_role_arn]
   }
 }
