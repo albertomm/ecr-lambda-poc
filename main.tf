@@ -9,3 +9,15 @@ terraform {
   }
 }
 
+provider "aws" {
+  alias   = "account_a"
+  region  = var.region
+  profile = var.account_a_profile
+}
+
+provider "aws" {
+  alias   = "account_b"
+  region  = var.region
+  profile = var.account_b_profile
+}
+
