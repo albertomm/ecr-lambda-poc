@@ -21,3 +21,32 @@ provider "aws" {
   profile = var.account_b_profile
 }
 
+data "aws_caller_identity" "account_a" {
+  provider = aws.account_a
+}
+
+data "aws_caller_identity" "account_b" {
+  provider = aws.account_b
+}
+
+module "account_a" {
+  source = "./account_a"
+
+  account_b_id = data.aws_caller_identity.account_b.account_id
+
+  providers = {
+    aws = aws.account_a
+  }
+}
+
+module "account_b" {
+  source = "./account_b"
+
+  account_a_id = data.aws_caller_identity.account_a.account_id
+  image_url    = "${module.account_a.repository_url}:initial"
+
+  providers = {
+    aws = aws.account_b
+  }
+}
+
