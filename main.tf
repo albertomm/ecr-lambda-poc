@@ -66,3 +66,14 @@ module "pipeline" {
    ]
 }
 
+output "account_a" {
+  value = module.account_a
+}
+
+output "account_b" {
+  value = module.account_b
+}
+
+output "pipeline" {
+  value = module.pipeline
+}
