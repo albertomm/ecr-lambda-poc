@@ -33,6 +33,7 @@ module "account_a" {
   source = "./account_a"
 
   account_b_id = data.aws_caller_identity.account_b.account_id
+  updater_role_arn = module.account_b.updater_role_arn
 
   providers = {
     aws = aws.account_a
